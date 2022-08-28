@@ -1,1 +1,67 @@
-# typescript_tutorial
+# TypeScript
+
+Typescirpt is a programming language created by Microsoft address some of the shortcomings of javascript. TS is a programming language built on top of the Javascript. So every JS file is TS valid file. TS helps us to build more robust and maintainable applications in less time.
+
+TS has some benefits:
+- Static typing
+- Code complation
+- Refactoring
+- Shorthand notations
+
+<strong>Stattic types</strong>
+
+Statically-typed languages such as C++, C# or java, we now the type of variables at compile time or when coding
+
+```java
+// Java
+int number = 10;
+number = "a"; // WRONG
+```
+
+Dynamically-typed languages such as JavaScript, Python or Ruby, the type of variable is dynamic. Variables can be changed at runtime.
+
+```javascript
+// Javascript
+let number = 10;
+number = "a"; // It is OK
+```
+
+This may leads to create bugs which may be very hard to find it.
+
+TS is sometimes called as javascript with type checking.
+
+```typescript
+// Typescript
+let x: number = 10;
+x = "a" // Compiler will identify the bug! 
+```
+
+Drawbacks:
+- Compalition - We need to give .ts to typescript compiler to compile and translate into .js => this process is called transpilation
+- Discipline in coding
+
+Sum up above, TS is good to use for medium to large projects whereas JS might be better for simple projects.
+
+## Setting Up the Development Environment
+
+1. Install the [Node.js](https://nodejs.org/en/).
+2. run `npm i -g typescript`
+3. run `tsc -v` to check if we installed the TS correctly.
+
+<strong>Configuring the Typescript Compilier</strong>
+- `tsc --init` this create a configuration file `tsconfig.json`
+
+
+<strong>Debugging the Typescript Applications</strong>
+- We need to enable in the emit section the sourceMap feature in tsconfig.json
+- When clicking on the debug button, the launch.json is open so add this `"preLaunchTask": "tsc: build - tsconfig.json" ,` right above `"outFiles"`
+
+## Fundamentals
+
+We will introduce in this section as follow:
+- The any Type
+- Arrays
+- Tuples
+- Enums
+- Functions
+- Objects
