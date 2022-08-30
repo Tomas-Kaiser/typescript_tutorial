@@ -65,3 +65,30 @@ We will introduce in this section as follow:
 - Enums
 - Functions
 - Objects
+
+### Built-in Types
+
+TS add some more types to regular types of JS.
+
+| JavaScript  | TypeScript  |
+| ----------- | ----------- |
+| number      | any         |
+| string      | unknow      |
+| boolean     | never       |
+| null        | enum        |
+| undefined   | tuple       |
+| object      |             |
+
+Declaring a primitive types in TS
+
+```Typescript
+let sales: number = 123_456_790; // if the number is big, we can use underscore in TS for better reading
+let course: string = 'Typescipt';
+let isPublish: boolean = true; 
+let level; // Type of the variable is any
+
+// if we initialize the variable with string, number etc. we do not have tu use the type
+// as it figures out automatically:
+let avg = 50; // If we hover over avg it'll show a type number
+
+```
