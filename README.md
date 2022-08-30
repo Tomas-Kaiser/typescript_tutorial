@@ -90,5 +90,14 @@ let level; // Type of the variable is any
 // if we initialize the variable with string, number etc. we do not have tu use the type
 // as it figures out automatically:
 let avg = 50; // If we hover over avg it'll show a type number
-
 ```
+
+### Any Type
+We try to avoid using type `any` as much as possible because we are loosing the benefits of Typescript
+
+```Typescript
+let level;
+level = 1;
+level = 'a';
+```
+It is valid as the level is type any.
