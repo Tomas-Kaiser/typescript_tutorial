@@ -109,3 +109,12 @@ let numbers: number[] = [1, 2, 3]; // again we do not have to explicity mention 
                                    // that is an array of numbers as we initialized
                                    // variable numbers 
 ```
+
+### Tuples
+
+Tuple is a fixed length of array where each element has a particular type. We often use this when working with a pair of values. Let's say that for each user we want to represent two values - id and name.
+
+```Typescript
+let user: [number, string] = [1, "Tom"];
+user.push(2); // !! You can use array methods eventhough this should not work as tuple is a fixed length of array!
+```
