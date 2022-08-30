@@ -101,3 +101,11 @@ level = 1;
 level = 'a';
 ```
 It is valid as the level is type any.
+
+### Arrays
+
+```Typescript
+let numbers: number[] = [1, 2, 3]; // again we do not have to explicity mention that
+                                   // that is an array of numbers as we initialized
+                                   // variable numbers 
+```
