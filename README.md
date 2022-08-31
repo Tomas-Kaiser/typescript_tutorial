@@ -118,3 +118,29 @@ Tuple is a fixed length of array where each element has a particular type. We of
 let user: [number, string] = [1, "Tom"];
 user.push(2); // !! You can use array methods eventhough this should not work as tuple is a fixed length of array!
 ```
+
+It is better to use a tuple for just two values (pair values). When we use tuple for more than two values it gets a bit unclear and difficult to understand what each value means etc.
+
+### Enums
+
+Enum represents a list of related constants. Let's say we want to represent the size of T shirts as constants.
+
+One way:
+
+```Typescript
+const small = 1;
+const medium = 2;
+const large = 3;
+```
+or
+```Typescript
+// PascalCase notation is used for enum
+const enum Size {Small = 1, Medium, Large}; // values inside of {} are called members
+// Automatically assigned { Small = 0, Medium = 1 ...}
+// We can start also with 1 if we assign for the first member only { Small = 1, ...} as we change the order with this.
+// We can also use letters instead { Small = 's', Medium = 'm' ...} but we have to explicitly do it for all members
+
+let mySize: Size = Size.Medium;
+console.log(mySize) // print out 2
+```
+Tip: Use `const` before `enum` as it will generate more optimized code when the TS compiler comply the code from TS to JS.
