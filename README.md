@@ -143,4 +143,102 @@ const enum Size {Small = 1, Medium, Large}; // values inside of {} are called me
 let mySize: Size = Size.Medium;
 console.log(mySize) // print out 2
 ```
-Tip: Use `const` before `enum` as it will generate more optimized code when the TS compiler comply the code from TS to JS.
+*Tip*: Use `const` before `enum` as it will generate more optimized code when the TS compiler comply the code from TS to JS.
+
+### Functions
+
+We should always specify the return value of the function.
+
+```Typescript
+function calculateTax(income: number, taxYear = 2022): number {
+    if (taxYear < 2022)
+        return income * 1.2;
+    return income * 1.3;
+}
+```
+We can use optional parametr instead of default value for taxYear like `taxYear?` but it is better to use default parametr to avoid undefined.
+
+### Objects
+
+We can use `readonly` to be able to read a property and not to change it.
+
+```Typescript
+let employ: {
+    readonly id: number
+    name: string
+    retire: (date: Date) => void // void represent the return value of the method - we do not expect any value to be returned
+} = {
+    id: 1,
+    name: "Tom",
+    retire: (date: Date) => {
+        console.log(date);
+    }
+}
+```
+
+This is a bit noisy and difficult to read so later of thistutorial, I'll show you how to do it better.
+
+## Advanced Types
+To introduce advanced types in Typescript!
+
+### Type Alias
+
+With `type` we can simplify the object we created above as follow:
+
+```Typescript
+type Employe = {
+    readonly id: number
+    name: string
+    retire: (date: Date) => void
+}
+
+let employ: Employe = {
+    id: 1,
+    name: "Tom",
+    retire: (date: Date) => {
+        console.log(date);
+    }
+}
+```
+
+### Union Types
+
+With `union` we can give to a variable or function one or more types.
+
+```Typescript
+function kgToLbs(weight: number | string): number {
+    // Narrowing 
+    if (typeof weight === 'number')
+        return weight * 2.2;
+    else
+        return parseInt(weight) * 2.2;
+}
+
+kgToLbs(10);
+kgToLbs('10');
+```
+
+The union type is `number | string` and we need to narrowing in the function block to identify if it is number or string.
+
+### Intersection Types
+
+We have another technic to combine types called intersection. Instead of verticle bar we use `&`
+
+`weight: number & string` - this does not make sence as object weight cannot be number and string at the same time so see real example below:
+
+```Typescript
+type Draggable = {
+    drag: () => void;
+}
+
+type Resizable = {
+    resize: () => void;
+}
+
+type UIWidget = Draggable & Resizable
+
+let textBox: UIWidget = {
+    drag: () => {},
+    resize: () => {}
+}
+```
