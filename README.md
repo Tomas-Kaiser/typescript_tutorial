@@ -294,3 +294,13 @@ let ride = {
     speed: speed ?? 30 // means use speed if the speed is not null or undefined otherwise use 30
 }
 ```
+### Type Assertion
+```Typescript
+// HTMLElement
+// HTMLInputElement
+let phone = document.getElementById("phone") as HTMLInputElement;
+// or
+let phone = <HTMLInputElement> document.getElementById("phone");
+
+phone.value;
+```
