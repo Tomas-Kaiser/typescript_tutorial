@@ -304,3 +304,20 @@ let phone = <HTMLInputElement> document.getElementById("phone");
 
 phone.value;
 ```
+
+### The Unknown Type
+It is better to use unknown where we would use any which is not recommended.
+
+```Typescript
+function render(document: uknown) {
+    // Use narrowing when uknown type is used
+
+    if (typeof document === "string"){
+        // In this block code, we have string method available
+        // typeof can be used just for primitive types. We need to use instanceof for custom objects instead.
+    }
+    document.move(); // Compiler won't be complaining eventhougt those methods does not exist, because we use type uknown
+    document.fly();
+}
+
+```
