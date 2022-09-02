@@ -295,6 +295,8 @@ let ride = {
 }
 ```
 ### Type Assertion
+Sometimes we know more about the type of a variable than the TypeScript compiler. In those situations, we can use the as keyword to specify a different type than the one inferred by the compiler. This is called type assertion.
+
 ```Typescript
 // HTMLElement
 // HTMLInputElement
@@ -306,7 +308,7 @@ phone.value;
 ```
 
 ### The Unknown Type
-It is better to use unknown where we would use any which is not recommended.
+The unknown type is the type-safe version of any. Similar to any, it can represent any value but we cannot perform any operations on an unknown type without first narrowing to a more specific type.
 
 ```Typescript
 function render(document: uknown) {
@@ -323,7 +325,8 @@ function render(document: uknown) {
 ```
 
 ### The Never Type
-Never type represents the value which never occur. Example:
+The never type represents values that never occur. We often use them to annotate functions that never return or always throw an error. 
+
 
 ```Typescript
 function reject(message: string): never { // We annotate it with never as this func will never return
