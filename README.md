@@ -336,3 +336,36 @@ function reject(message: string): never { // We annotate it with never as this f
 reject("...");
 console.log("Hello World"); // This will never be executed 
 ```
+
+## Classes, Interfaces and Object-oriented Programming
+
+In this section we are going to look at:
+- Introduction to OOP
+- Classes
+- Constructors
+- Properties and methods
+- Access control keyword
+- Getters & Setters
+- Static members
+- Index signature
+- Inheritance
+- Polymorphism
+- Abstract classes
+- Interfaces
+
+### What Is OOP
+OOP stands for Object-Oriented Programing. OOP is one of the many programming paradigms (styles of programming) in which objects are the building blocks of applications. We have others such as:
+
+- Procedural
+- Functional
+- Object-oriented
+- Event-driven
+- Aspect-oriented
+and so on ...
+
+TS and JS can be used for functional or OOP style of programming.
+
+The object contain a 
+
+- data (state) also known as properties
+- Operations (behaviour) also known as methods
