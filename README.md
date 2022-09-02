@@ -321,3 +321,15 @@ function render(document: uknown) {
 }
 
 ```
+
+### The Never Type
+Never type represents the value which never occur. Example:
+
+```Typescript
+function reject(message: string): never { // We annotate it with never as this func will never return
+    throw new Error(message);
+}
+
+reject("...");
+console.log("Hello World"); // This will never be executed 
+```
