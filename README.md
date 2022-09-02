@@ -268,3 +268,19 @@ function greet(name: string | null | undefined)
 
 greet(null);
 ```
+
+### Optional Chaining
+
+```Typescript
+type Customer = {
+    birthday: Date 
+}
+
+function getCustomer(id: number): Customer | null {
+    return id === 0 ? null : {birthday: new Date()}
+}
+
+let customer = getCustomer(0);
+// if (customer !== null && customer !== undefined) // Instead this we can use Optional property access operator with '?'
+console.log(customer?.birthday);
+```
