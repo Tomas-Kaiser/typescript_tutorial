@@ -284,3 +284,13 @@ let customer = getCustomer(0);
 // if (customer !== null && customer !== undefined) // Instead this we can use Optional property access operator with '?'
 console.log(customer?.birthday);
 ```
+
+### The Nullish Coaelscing Operator
+The nullish coaelscing operator in Typescript is `??`. This check whether the value is null or undefined;
+
+```Typescript
+let speed: number | null = null;
+let ride = {
+    speed: speed ?? 30 // means use speed if the speed is not null or undefined otherwise use 30
+}
+```
