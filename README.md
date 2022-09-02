@@ -242,3 +242,16 @@ let textBox: UIWidget = {
     resize: () => {}
 }
 ```
+
+### Literal Types
+
+Sometimes we want to limit a value we can assign to a variable. This is where we use literal types where we specify exact value or we can use union types such as
+
+```Typescript
+let quantity: 50 | 100 = 100;
+
+// Or even better, we can use alias type
+type Quantity = 50 | 100;
+let quiantity: Quantity = 50;
+```
+It also can be a string, not just number etc.
