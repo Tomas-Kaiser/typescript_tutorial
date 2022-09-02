@@ -255,3 +255,16 @@ type Quantity = 50 | 100;
 let quiantity: Quantity = 50;
 ```
 It also can be a string, not just number etc.
+
+### Nullable Types
+
+We can use null as a type such:
+```Typescript
+function greet(name: string | null | undefined)
+    if (name)
+        console.log(name.toUpperCase());
+    else
+        console.log("Hola!");
+
+greet(null);
+```
