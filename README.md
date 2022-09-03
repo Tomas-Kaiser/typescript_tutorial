@@ -443,7 +443,7 @@ All the properties are public by default.
 class Account {
     readonly id: number;
     owner: string;
-    private balance: number; // This property is accessible only inside of the class 
+    private _balance: number; // This property is accessible only inside of the class | we use underscore when the property is private
     nickname?: string;
 ```
 
@@ -460,7 +460,7 @@ class Account {
     constructor(
         public readonly id: number,
         public owner: string,
-        private balance: number) {
+        private _balance: number) { // we use underscore when the property is private
         // this.id = id;
         // this.owner = owner;
         // this.balance = balance
@@ -468,3 +468,30 @@ class Account {
 ```
 The compiler will initialize the properties as before but this is much concise.
 
+### Getters & Setters
+Getter is a method inside of the class that we use for getting the value of a property. For example for private balance property we can set up getter and setter as follow:
+
+```Typescript
+class Account {
+    constructor(
+        public readonly id: number,
+        public owner: string,
+        private _balance: number
+        ){
+        }
+
+    set balance(amount: number) {
+        if (amount <= 0)
+            throw new Error("Invalid amount!");
+        this._balance += amount;
+    }
+
+    get balance(): number {
+        return this._balance;
+    }
+}
+
+let account = new Account(1, "Tom", 0);
+account.balance = 100;
+console.log(account.balance);
+```
