@@ -399,3 +399,15 @@ class Account {
     }
 }
 ```
+
+### Creating an Object
+
+`new Account()` is a new instance of the Account class
+
+```Typescript
+let account = new Account(1, "Tom", 0);
+account.deposite(100); 
+console.log(account.balance); // print: 100
+console.log(account);         // print: Account { id: 1, owner: 'Tom', balance: 100 }
+console.log(account instanceof Account); // print: true  - typeof would return object which is not handy.
+```
