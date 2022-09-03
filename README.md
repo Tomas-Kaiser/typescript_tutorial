@@ -369,3 +369,33 @@ The object contain a
 
 - data (state) also known as properties
 - Operations (behaviour) also known as methods
+
+### Creating Classes
+
+OOP is all about object. To create an object, you need to create a class first. A class is a blueprint for creating objects. It is like a object factory.
+
+Let's create a class account as follow:
+
+<img src="./imgs/AccountObject.png" alt="Account class schema" width="250">
+
+Every class needs constructor which is a special method inside of the class used for initializing an object. Constructor has no return keyword as it should always return an instance of a bank account. So if we hover over the constructor we can see that the return value is Account.
+
+```Typescript
+class Account {
+    id: number;
+    owner: string;
+    balance: number;
+
+    constructor(id: number, owner: string, balance: number) {
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance
+    }
+
+    deposite(amount: number): void {
+        if (amount <= 0)
+            throw new Error("Invalid amount!");
+        this.balance += amount;
+    }
+}
+```
