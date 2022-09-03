@@ -495,3 +495,28 @@ let account = new Account(1, "Tom", 0);
 account.balance = 100;
 console.log(account.balance);
 ```
+
+### Index Signatures
+Index signature is used when we need to modify object dynamically. It is possible in JS but not in TS. Therefore we use index signature in this case.
+
+```Javascript
+// JS
+let person = {}
+person.name = "Tom" // works in JS but not in TS
+```
+
+```Typescript
+// TS
+class SeatAssignment {
+    // A1, A2, ... we do not want to create like 1000 properties therefore
+    // Tom, John, ... 
+    // Index signature property
+    [seatNumber: string]: string; // last string can be a customer obj
+}
+
+let seats = new SeatAssignment();
+seats.A1 = "Tom"; // dot notation
+// seats["A1"] = "Tom"; // Square bracket notation is also available 
+seats.A2 = "John";
+seats.A3 = 1; // Gets typing error as it can be only string
+```
