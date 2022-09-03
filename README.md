@@ -447,3 +447,24 @@ class Account {
     nickname?: string;
 ```
 
+### Parametr Properties
+We can simplify our code using parametr properts as follow:
+
+```Typescript
+class Account {
+    // readonly id: number;
+    // owner: string;
+    // balance: number;
+    nickname?: string; // This is an optional property therefore it does not have to be in the parametr of constructor
+
+    constructor(
+        public readonly id: number,
+        public owner: string,
+        private balance: number) {
+        // this.id = id;
+        // this.owner = owner;
+        // this.balance = balance
+    }
+```
+The compiler will initialize the properties as before but this is much concise.
+
