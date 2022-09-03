@@ -428,3 +428,22 @@ class Account {
         this.balance = balance
     }
 ```
+
+### Access Control Keywords
+TS provide more modifiers for controlling access to properties and methods. We use these modifires to write more robust code.
+
+We hate three access modifier:
+- public
+- private
+- protected
+
+All the properties are public by default.
+
+```Typescript
+class Account {
+    readonly id: number;
+    owner: string;
+    private balance: number; // This property is accessible only inside of the class 
+    nickname?: string;
+```
+
