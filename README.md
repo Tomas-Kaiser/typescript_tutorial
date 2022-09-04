@@ -520,3 +520,27 @@ seats.A1 = "Tom"; // dot notation
 seats.A2 = "John";
 seats.A3 = 1; // Gets typing error as it can be only string
 ```
+
+### Static Members
+A static property is a property that belongs to a class and not an object. We are going to have only one instance of that property in memory.
+
+```Typescript
+class Ride {
+    private static _activeRiders: number = 0;
+
+    start() { Ride._activeRiders++}
+    stop() { Ride._activeRiders--}
+
+    static get activeRiders() { // We need to use stati access modifier to access the static property in the class
+        return Ride._activeRiders; // We do not use this as this referes to the object and not a class!!
+    }
+}
+
+let ride1 = new Ride();
+ride1.start();
+
+let ride2 = new Ride();
+ride2.start();
+
+console.log(Ride.activeRiders); // Output: 2
+```
