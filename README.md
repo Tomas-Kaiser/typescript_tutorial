@@ -544,3 +544,40 @@ ride2.start();
 
 console.log(Ride.activeRiders); // Output: 2
 ```
+
+### Inheritance
+
+Sometimes when dealing with classes that have some commonality. For example student and teacher have some common properties and methods so it is better to create a class called Person as below:
+
+<img src="./imgs/Inheritance.png" alt="Inheritance class schema" width="350">
+
+Inheritance is a mechanism that allows us to reuse our code.
+
+Code example:
+
+```Typescript
+class Person {
+  constructor(public firstName: string, public lastName: string){};
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  walk() {
+    console.log("Walking...");
+  }
+}
+
+class Student extends Person {
+  constructor(public studentId: number, firstName: string, lastName: string) { // note we do not use access modifier for firstName 
+    // and lastName as we do not want to create a new properties in Student class hence it already exists in Person class
+    super(firstName, lastName);
+  }
+
+  takeTest() {
+    console.log("Taking a test...")
+  }
+}
+
+let student = new Student(1, "Tom", "K");
+```
