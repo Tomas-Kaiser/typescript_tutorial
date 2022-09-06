@@ -33,7 +33,7 @@ let users: user[] = [
 class Person {
   constructor(public firstName: string, public lastName: string){};
 
-  get fullName() {
+  get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
   }
 
@@ -53,4 +53,13 @@ class Student extends Person {
   }
 }
 
-let student = new Student(1, "Tom", "K");
+class Teacher extends Person {
+  // We do not have to create constructor if we do not want to create additional properties for Teacher class.
+
+  override get fullName() {
+    return `Professor ${super.fullName}`; // We can use super keyword to not repeat ourselves. 
+  }
+}
+
+let teacher = new Teacher("T", "K");
+console.log(teacher.fullName);
