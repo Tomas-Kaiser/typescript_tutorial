@@ -63,3 +63,13 @@ class Teacher extends Person {
 
 let teacher = new Teacher("T", "K");
 console.log(teacher.fullName);
+
+printNames([
+  new Student(1, "Tom", "K"),
+  new Teacher("Joy", "J")
+]);
+
+function printNames(people: Person[]): void {
+  for (let person of people)
+    console.log(person.fullName);
+}

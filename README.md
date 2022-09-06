@@ -598,3 +598,30 @@ class Teacher extends Person {
 let teacher = new Teacher("T", "K");
 console.log(teacher.fullName); // Output: Professor T K
 ```
+
+### Polymorphism
+
+Poly = many & morph = form  =>  Many forms - where an object can take many different forms.
+
+```Typescript
+printNames([
+  new Student(1, "Tom", "K"),
+  new Teacher("Joy", "J"),
+  new Principal("Dan", "D")
+]);
+
+function printNames(people: Person[]): void {
+  for (let person of people)
+    console.log(person.fullName);
+}
+// Output:
+// Tom K
+// Professor Joy J
+// Principal Dan D
+```
+We can see two different output, two different form of class Person. This is the example of polymorphism.
+
+The anoter principle of OOP is 
+<strong>Open Closed Principle</strong> says: Classes should be open for extention and closed for modification!
+
+That means that we should not modify class Person but we should add a new form of the class like we add Principal. Ps. this is a guide only as sometimes we need to modify a class.

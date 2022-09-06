@@ -34,13 +34,18 @@ class Student extends Person {
     }
 }
 class Teacher extends Person {
-    constructor(firstName, lastName) {
-        super(firstName, lastName);
-    }
     get fullName() {
         return `Professor ${super.fullName}`;
     }
 }
 let teacher = new Teacher("T", "K");
 console.log(teacher.fullName);
+printNames([
+    new Student(1, "Tom", "K"),
+    new Teacher("Joy", "J")
+]);
+function printNames(people) {
+    for (let person of people)
+        console.log(person.fullName);
+}
 //# sourceMappingURL=index.js.map
