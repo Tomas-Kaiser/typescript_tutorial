@@ -524,6 +524,8 @@ seats.A3 = 1; // Gets typing error as it can be only string
 ### Static Members
 A static property is a property that belongs to a class and not an object. We are going to have only one instance of that property in memory.
 
+Static members are accessed using the class name. We use them where we need a single instance of a class member (property or method) in memory. 
+
 ```Typescript
 class Ride {
     private static _activeRiders: number = 0;
@@ -629,3 +631,26 @@ That means that we should not modify class Person but we should add a new form o
 ### Private vs Protected Members
 
 `private` keyword means that the property or method is accessible only inside of the class whereas `protected` is accessible inside of the class and its inhereted to derived classes. Do not use `protected` unless you really know what you are doing.
+
+### Abstract Classes & Methods
+An abstract class is a class with partial implementation. Abstract classes cannot be instantiated and have to be inherited. Once we have one abstract method we need to make class abstact too.
+
+<img src="./imgs/AbstractClass.png" alt="Abstract class schema" width="250">
+
+```Typescript
+abstract class shape {
+  constructor(public color: string){}
+
+  abstract render(): void;
+}
+
+class circle extends shape {
+  constructor(public radius: number, color: string) {
+    super(color);
+  }
+
+  override render(): void {
+    console.log("Rendering a circle!");
+  }
+}
+```

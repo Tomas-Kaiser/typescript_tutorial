@@ -73,3 +73,19 @@ function printNames(people: Person[]): void {
   for (let person of people)
     console.log(person.fullName);
 }
+
+class shape {
+  constructor(public color: string){}
+
+  render() {}
+}
+
+class circle extends shape {
+  constructor(public radius: number, color: string) {
+    super(color);
+  }
+
+  override render() {
+    console.log("Rendering a circle!");
+  }
+}
