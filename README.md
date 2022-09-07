@@ -668,3 +668,15 @@ interface Calendar {
 
 class GoogleCalendar implements Calendar { }
 ```
+
+## Generics
+
+- Generic classes
+- Generic functions
+- Generic interfaces
+- Generic constrain
+- Type mapping (transforming types)
+
+### Understanding the Problem
+
+Generics allow us to create reusable classes, interfaces and functions.
