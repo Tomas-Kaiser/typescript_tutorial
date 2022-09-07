@@ -625,3 +625,7 @@ The anoter principle of OOP is
 <strong>Open Closed Principle</strong> says: Classes should be open for extention and closed for modification!
 
 That means that we should not modify class Person but we should add a new form of the class like we add Principal. Ps. this is a guide only as sometimes we need to modify a class.
+
+### Private vs Protected Members
+
+`private` keyword means that the property or method is accessible only inside of the class whereas `protected` is accessible inside of the class and its inhereted to derived classes. Do not use `protected` unless you really know what you are doing.
