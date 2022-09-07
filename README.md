@@ -654,3 +654,17 @@ class circle extends shape {
   }
 }
 ```
+
+### Interface
+
+We use interfaces to define the shape of objects. We use interface when we do not have any general implementation. If we have, then the abstract class is suitable.
+
+```Typescript
+interface Calendar {
+    name:string;
+    
+    addEvent():void; 
+}
+
+class GoogleCalendar implements Calendar { }
+```

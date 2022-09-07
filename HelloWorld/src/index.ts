@@ -74,10 +74,10 @@ function printNames(people: Person[]): void {
     console.log(person.fullName);
 }
 
-class shape {
+abstract class shape {
   constructor(public color: string){}
 
-  render() {}
+  abstract render(): void;
 }
 
 class circle extends shape {
@@ -85,7 +85,7 @@ class circle extends shape {
     super(color);
   }
 
-  override render() {
+  override render(): void {
     console.log("Rendering a circle!");
   }
 }
