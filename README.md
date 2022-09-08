@@ -704,3 +704,16 @@ class KyeValuePair<T, U> {
 // We can omit the angel bracket
 let pair = new StringKeyValuePair<string, string>('1', "Apple");
 ```
+
+### Generic Functions
+
+We can create generic function or method inside of the class.
+
+```Typescript
+function wrapInArray<T>(value: T) {
+  return [value];
+}
+
+let array = wrapInArray('1'); // Return array of string
+let array = wrapInArray(1);   // Return array of number
+```

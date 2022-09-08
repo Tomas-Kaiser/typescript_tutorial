@@ -99,3 +99,15 @@ class StringKeyValuePair {
 }
 
 let pair = new StringKeyValuePair('1', "Apple");
+
+// class KyeValuePair<T, U> {
+//   constructor(public key: T, public value: U) {}
+// }
+
+// let pair = new StringKeyValuePair<string, string>('1', "Apple");
+
+function wrapInArray<T>(value: T) {
+  return [value];
+}
+
+let array = wrapInArray('1');
