@@ -746,3 +746,17 @@ result.data?.username; // ? because the username can be null
 let resultP = fetch<Product>("url-product");
 resultP.data?.title; // ? because the username can be null
 ```
+
+### Generic Constraints
+
+Some times we need to constrain of generic arguments with `extends` such as:
+
+```Typescript
+// We can pass only string or number. We can also use interface or class instead.
+function echo<T extends string | number>(value: T): T {
+  return value;
+}
+
+echo('a');
+echo(1);
+```
