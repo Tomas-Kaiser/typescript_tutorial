@@ -679,4 +679,28 @@ class GoogleCalendar implements Calendar { }
 
 ### Understanding the Problem
 
-Generics allow us to create reusable classes, interfaces and functions.
+Generics allow us to create reusable classes, interfaces and functions. Let's example where we could use generics instead.
+
+```Typescript
+class KeyValuePair {
+  constructor(public key: number, public value: string) {}
+}
+
+class StringKeyValuePair {
+  constructor(public key: string, public value: string) {}
+}
+
+let pair = new StringKeyValuePair('1', "Apple");
+```
+
+Example with generic class:
+
+```Typescript
+// T comes from C++ where it is called Template Classes or we can just use K & V.
+class KyeValuePair<T, U> {
+  constructor(public key: T, public value: U) {}
+}
+
+// We can omit the angel bracket
+let pair = new StringKeyValuePair<string, string>('1', "Apple");
+```
