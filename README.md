@@ -717,3 +717,32 @@ function wrapInArray<T>(value: T) {
 let array = wrapInArray('1'); // Return array of string
 let array = wrapInArray(1);   // Return array of number
 ```
+
+### Generic Interfaces
+
+See example below:
+
+```Typescript
+interface Result<T> {
+  data: T | null,
+  error: string | null
+}
+
+function fetch<T>(url: string): Result<T> {
+  return {data: null, error: null};
+}
+
+interface User {
+  username: string;
+}
+
+interface Product {
+  title: string
+}
+
+let result = fetch<User>("url-user");
+result.data?.username; // ? because the username can be null
+
+let resultP = fetch<Product>("url-product");
+resultP.data?.title; // ? because the username can be null
+```
