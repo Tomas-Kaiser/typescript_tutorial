@@ -863,3 +863,26 @@ type ReadOnly<T> = {
 [Doc](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 
 TypeScript comes with several utility types that perform type mapping for us. Examples are: Partial<T>, Required<T>, Readonly<T>, etc.
+
+## Decorators
+
+It allows us to change and enhance our classes.
+
+- What are decorators
+- Class decorators
+- Method decorators
+- Property decorators
+- Accessor decorators
+- Parameter decorators
+
+Decoraters are attributes that we apply to our classes and their members. With that we can change how they behave. 
+
+Eg in Anguler we use built-in decorators like `@Component`:
+
+```Typescript
+@Component
+class ProfileComponent {}
+```
+Under the hood the decorator is just a function that gets called by JS runtime. So JS engine that execute our code is going to call that function and pass our class to it. In that function, we have a chance to modify that class so we can add new properties, methods or we can change implementation of existing methods.
+
+Enable `"experimentalDecorators": true,` in tsconfig.json
