@@ -833,3 +833,33 @@ store.find("name", "a");
 store.find("price", 1);
 store.find("nonExistingProperty", 1); // cause runtime error as 
 ```
+
+### Type Mapping
+
+Sometimes we need to base a type on another type => Type Mapping!
+
+Using type mapping we can create new types based off of existing types. For example, we can create a new type with all the properties of another type where these properties are readonly, optional, etc.
+
+```Typescript
+interface Product {
+  name: string,
+  price: number
+}
+
+type ReadOnlyProduct = {
+  // Index signature
+  // keyof
+  readonly [Property in keyof Product]: Product[Property]
+}
+
+// Or even more generic
+type ReadOnly<T> = {
+  // Index signature
+  // keyof
+  readonly [Property in keyof T]: T[Property]
+}
+```
+ Sever types are already built in the TS. We can see them in documentation when we google it like "typescript utility types".
+[Doc](https://www.typescriptlang.org/docs/handbook/utility-types.html)
+
+TypeScript comes with several utility types that perform type mapping for us. Examples are: Partial<T>, Required<T>, Readonly<T>, etc.
