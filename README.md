@@ -886,3 +886,5 @@ class ProfileComponent {}
 Under the hood the decorator is just a function that gets called by JS runtime. So JS engine that execute our code is going to call that function and pass our class to it. In that function, we have a chance to modify that class so we can add new properties, methods or we can change implementation of existing methods.
 
 Enable `"experimentalDecorators": true,` in tsconfig.json
+
+### Class Decorators
