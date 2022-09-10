@@ -911,3 +911,31 @@ class ProfileComponent {}
 Note: We can replace the @Component decorator with a base class which would extends the Component class. This is just another tool how to do it.
 
 The function Component is executed just once. Does not matter how many @Component we have in our application.
+
+### Parameterized Decorators
+
+Sometimes we need to pass arguments to our decorators.
+
+
+ ```Typescript
+type ComponentOptions = {
+    selector: string;
+}
+
+// Decorator factory
+function Component(options: ComponentOptions) {
+ return (constructor: Function) => { // We need to return a decorator function
+  console.log("Component decorator called!");
+  constructor.prototype.options = value;    // Add the value here
+  constructor.prototype.uniqueId = Date.now();
+  constructor.prototype.insertInDom = () => {
+    console.log("Inserting a component into DOM");
+  }
+}
+}
+
+@Component({selector: "#my-profile"})
+class ProfileComponent {}
+```
+
+
