@@ -888,3 +888,26 @@ Under the hood the decorator is just a function that gets called by JS runtime. 
 Enable `"experimentalDecorators": true,` in tsconfig.json
 
 ### Class Decorators
+
+ See example below:
+
+ ```Typescript
+ // We are using Pascal naming convention
+// To apply this function to class we need to use constructor as a parameter
+function Compotent(constructor: Function) {
+  // In that func we can modify or enhance our class
+  console.log("Component decorator called!");
+  // Every object in the JS has a prototype which inherits various properties and methods
+  constructor.prototype.uniqueId = Date.now();
+  constructor.prototype.insertInDom = () => {
+    console.log("Inserting a component into DOM");
+  }
+}
+
+@Component
+class ProfileComponent {}
+```
+
+Note: We can replace the @Component decorator with a base class which would extends the Component class. This is just another tool how to do it.
+
+The function Component is executed just once. Does not matter how many @Component we have in our application.
