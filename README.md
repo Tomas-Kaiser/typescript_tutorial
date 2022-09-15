@@ -933,10 +933,27 @@ function Component(options: ComponentOptions) {
   }
  }
 }
-0
+
 @Component({selector: "#my-profile"})
 class ProfileComponent {}
 ```
+
+### Decorator Composition
+
+We can have one or more decorators such as:
+
+```Typescript
+function Pipe(constructor: Function) {
+  console.log("Pipe decorator called")
+  constructor.prototype.pipe = true;
+}
+
+@Component({selector: "#my-profile"})
+@Pipe
+class ProfileComponent {}
+```
+
+Note that the decorators are called in reverse order so first is @Pipe and then @Component.
 
 
 
