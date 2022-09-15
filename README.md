@@ -926,16 +926,17 @@ type ComponentOptions = {
 function Component(options: ComponentOptions) {
  return (constructor: Function) => { // We need to return a decorator function
   console.log("Component decorator called!");
-  constructor.prototype.options = value;    // Add the value here
+  constructor.prototype.options = options.selector;    // Add the value here
   constructor.prototype.uniqueId = Date.now();
   constructor.prototype.insertInDom = () => {
     console.log("Inserting a component into DOM");
   }
+ }
 }
-}
-
+0
 @Component({selector: "#my-profile"})
 class ProfileComponent {}
 ```
+
 
 
