@@ -955,5 +955,38 @@ class ProfileComponent {}
 
 Note that the decorators are called in reverse order so first is @Pipe and then @Component.
 
+### Method Decorators
 
+Instead of constructor function, we need three different types of parameters.
+
+1. It is an abject that owns the target method
+2. Name of the target method
+3. Descriptor object or the target or the target method
+
+Note: Every property in an object has a descriptor object that describes that property.
+
+```Typescript
+function Log(target: any, methodName: string, descriptor: PropertyDescriptor ) {
+  const original = descriptor.value as Function;
+  descriptor.value = function(...args: any) {
+    console.log("Before");
+    original.call(this, ...args);
+    console.log("After");
+  }
+}
+
+class Person {
+  @Log
+  say(message: string) {
+    console.log("Person says " + message);
+  }
+}
+
+let person = new Person();
+person.say("Hello"); 
+// Output:
+// Before
+// Person says Hello
+// After
+```
 
