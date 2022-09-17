@@ -1048,3 +1048,33 @@ class User {
 
 let user = new User("abc"); // should throw error 
 ```
+
+## Modules
+
+I'll show you how to use modules to orgenize the code.
+
+- How to create and use modules
+- Module formats
+- Default exports
+- Wildcard imports
+- Re-exporting
+
+### Exporting & Importing
+
+We use the `export` keyword to export class.
+
+```Typescript
+export class Circle {
+  constructor(public radius: number);
+}
+```
+We use the `import` keyword to import class.
+
+```Typescript
+import { Circle } from './shapes';
+```
+We can also use `as` to rename the class to prevent name clashing.
+
+```Typescript
+import { Circle as MyCircle } from './shapes';
+```
