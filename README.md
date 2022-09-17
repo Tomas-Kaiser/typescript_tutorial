@@ -1078,3 +1078,20 @@ We can also use `as` to rename the class to prevent name clashing.
 ```Typescript
 import { Circle as MyCircle } from './shapes';
 ```
+
+### Default Export
+
+Sometimes we just want to export a single thing from a module. In those cases is better to use a default export
+
+```Typescript
+export default class Store {}
+
+export enum Format { Raw, Compressed }
+
+class Compressor {}
+class Encryptor {}
+```
+
+```Typescript
+import Store, { Format } from "./storage";
+```
