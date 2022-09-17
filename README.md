@@ -1103,3 +1103,24 @@ We use it when we want to import all exported classes with `*`.
 ```Typescript
 import * as Shapes from "./shapes";
 ```
+
+### Re-exporting
+
+Instead of importing each class seperatelly, we can create a folder Shape with index.ts where we combine the exports.
+
+--
+- Shape
+|- Circle.ts
+|- Square.ts
+|- Index.ts
+
+```Typescript
+// This is a short cut instead of importing it frist and then exporting it later. This does the same job with less code. 
+export { Circle } from "./Circle";
+export { Square } from "./Square";
+```
+
+```Typescript
+import { Circle, Square } from "./Shape"; // We do not have to mention index.ts if we enable moduleResolution: "node"
+```
+
