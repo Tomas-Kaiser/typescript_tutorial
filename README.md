@@ -1095,3 +1095,11 @@ class Encryptor {}
 ```Typescript
 import Store, { Format } from "./storage";
 ```
+
+### Wildcard Imports
+
+We use it when we want to import all exported classes with `*`.
+
+```Typescript
+import * as Shapes from "./shapes";
+```
