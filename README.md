@@ -1188,3 +1188,13 @@ import * as _ from 'lodash'; // This cause an error
 `npm i --save-dev @types/lodash` or `npm i -D @types/lodash`
 
 ps. Newer JavaScript libraries come with type definition files. So there’s no need to install type definition files separately. 
+
+## React with TypeScript
+
+We are going to build a simple todo app.
+
+### Creating a React App with TypeScript
+
+run `npx create-react-app reminders-app --template typescript`
+
+Note: In the src folder we can see tsx instead of jsx.
