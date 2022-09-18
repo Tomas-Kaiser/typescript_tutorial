@@ -1136,3 +1136,53 @@ import { Circle, Square } from "./Shape"; // We do not have to mention index.ts 
 ### Including JS Code in TS Projects
 
 We need to enable allowJs in `tsconfig.json` to use JS in TS project.
+
+### Type Checking JS Code
+
+Enable checkJs in `tsconfig.json`.
+
+In case we do not want to check we can use a special comment `@tsnocheck`
+
+```Javascript
+// @ts-nocheck
+export function calculateTax(income) {
+  return income * .3;
+}
+```
+
+### Describing Types Using JSDoc
+
+We can use JSDoc to provide a type information to TS compiler + we can add a description.
+
+```Javascript
+/**
+* Calculates income tax
+* @param {number} income - Net salary after expenses
+* @returns {number}
+*/
+export function calculateTax(income) {
+  return income * .3;
+}
+```
+
+### Creating Declaration Files
+
+This is another way how to provide type information. This is useful if you do not want to modify your JS code and add comments as above shown.
+
+We create a file with exact name with different extention like `tax.d.ts`. In this file we declare all the features of the target module.
+
+```Javascript
+export declare function calculateTax(income: number): number;
+```
+
+### Using Definitely Typed Declaration Files
+
+When using third party libs such as lodash
+
+`npm i lodash`
+
+```Javascript
+import * as _ from 'lodash'; // This cause an error 
+```
+
+`npm i --save-dev @types/lodash` or `npm i -D @types/lodash`

@@ -193,17 +193,36 @@ class ProductStore extends Store<Product> {
 }
 
 
-// We are using Pascal naming convention
-// To apply this function to class we need to use constructor as a parameter
-function Compotent(constructor: Function) {
-  // In that func we can modify or enhance our class
-  console.log("Component decorator called!");
-  // Every object in the JS has a prototype which inherits various properties and methods
-  constructor.prototype.uniqueId = Date.now();
-  constructor.prototype.insertInDom = () => {
-    console.log("Inserting a component into DOM");
-  }
+// // We are using Pascal naming convention
+// // To apply this function to class we need to use constructor as a parameter
+// function Compotent(constructor: Function) {
+//   // In that func we can modify or enhance our class
+//   console.log("Component decorator called!");
+//   // Every object in the JS has a prototype which inherits various properties and methods
+//   constructor.prototype.uniqueId = Date.now();
+//   constructor.prototype.insertInDom = () => {
+//     console.log("Inserting a component into DOM");
+//   }
+// }
+
+// @Component
+// class ProfileComponent {}
+
+type ComponentOptions = {
+  selector: string;
 }
 
-@Component
+// Decorator factory
+function Component(options: ComponentOptions) {
+return (constructor: Function) => { // We need to return a decorator function
+console.log("Component decorator called!");
+constructor.prototype.options = options;    // Add the value here
+constructor.prototype.uniqueId = Date.now();
+constructor.prototype.insertInDom = () => {
+  console.log("Inserting a component into DOM");
+}
+}
+}
+0
+@Component({selector: "#my-profile"})
 class ProfileComponent {}
