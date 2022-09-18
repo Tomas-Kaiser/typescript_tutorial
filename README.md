@@ -1115,6 +1115,7 @@ Instead of importing each class seperatelly, we can create a folder Shape with i
 |- Index.ts
 
 ```Typescript
+// Index.ts
 // This is a short cut instead of importing it frist and then exporting it later. This does the same job with less code. 
 export { Circle } from "./Circle";
 export { Square } from "./Square";
@@ -1124,3 +1125,14 @@ export { Square } from "./Square";
 import { Circle, Square } from "./Shape"; // We do not have to mention index.ts if we enable moduleResolution: "node"
 ```
 
+## Integration with JavaScript
+
+- Including JS code in TS projects
+- Type checking JS code
+- JSDocs
+- Declaration (Type Definition)
+- Using declaration files from @types/
+
+### Including JS Code in TS Projects
+
+We need to enable allowJs in `tsconfig.json` to use JS in TS project.
