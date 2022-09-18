@@ -1186,3 +1186,5 @@ import * as _ from 'lodash'; // This cause an error
 ```
 
 `npm i --save-dev @types/lodash` or `npm i -D @types/lodash`
+
+ps. Newer JavaScript libraries come with type definition files. So there’s no need to install type definition files separately. 
