@@ -1198,3 +1198,46 @@ We are going to build a simple todo app.
 run `npx create-react-app reminders-app --template typescript`
 
 Note: In the src folder we can see tsx instead of jsx.
+
+### Adding Bootstrap
+
+run `npm i bootstrap`
+
+Then import it into `index.tsx` as `import 'bootstrap/dist/css/bootstrap.css';`
+
+### Using the State Hook
+
+- In TS the useState is a generic function.
+- In JS when we call a function and we do not supply aurgument by defualt the undefined will be passed.
+- Thefore we pass the empty array otherwise the reminders can be Reminder[] or undefined.
+- Note we do not always supply generic type argument like [loading, setLoadin] = useState(true)  this will be automatically boolean.
+
+```Typescript
+  const [reminders, setReminders] = useState<Reminder[]>([
+    { id: 1, title: "Reminder 1" }
+  ]);
+```
+
+### Calling the Backend
+
+We will use the json placeholder for calling API. See link [here](https://jsonplaceholder.typicode.com/).
+
+We are going to use AXIOS for calling the API `npm i axios`
+
+### Using the Effect Hook
+
+We cannot have async function therefore we declary outside for the useEffect
+
+```Typescript
+  const [reminders, setReminders] = useState<Reminder[]>([]);
+  
+  // We want to make sure that this is going to be called just once therefore we supply the empty array.
+  useEffect(() => {
+    loadReminders();
+  }, []);
+
+  const loadReminders = async () => {
+    const reminders = await reminderService.getReminders();
+    setReminders(reminders);
+  }
+```
