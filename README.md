@@ -1241,3 +1241,28 @@ We cannot have async function therefore we declary outside for the useEffect
     setReminders(reminders);
   }
 ```
+
+## Node & Express with TypeScript
+
+We are going to build a simple API with Node, Express & TypeScript
+
+### Executing TS code with Node
+
+We cannot run `node index.ts` because node is execution engine for JavaScript code. It cannot execute TypeScript.
+
+There are two options:
+1. Use TypeScript compiler and then run the JS code as such:
+  - `tsc index.ts` -> this will create an index.js
+  - `node index.js`
+2. Use a node package called `ts-node`
+  - `npm init -y`
+  - `npm i -D ts-node`
+  - Add `start` into scripts in package.json as such `"start": "ts-node index.ts"`
+
+### Setting Up an Express Project
+
+- `npm i express`
+- `npm i -D typescript @types/node @types/express`
+- `tsc --init` to create a tsconfig.json
+- `npm i nodemon` to watch changes and restart the server automatically
+- change start in package.json to `"start": "nodemon index.ts"`
